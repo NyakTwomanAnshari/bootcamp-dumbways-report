@@ -1,8 +1,0 @@
-- dapat menyebarkan aplikasi sesuai permintaan
-- dapat menghindari aplikasi ketika di deploy
-- dapat down-grade version aplikasi apabila ada error
-
-TASK
-- rangkuman materi hari ini di github
-
-- cloud computing adalah sebuah layanan service di internet berupa storage, server, database, networking
