@@ -1,4 +1,4 @@
-# INSTALATION UBUNTU SERVER AND BASIC SHELL SCRIPTING
+# INSTALATION UBUNTU SERVER AND BASIC SHELL SCRIPTING (BASH)
 ## Instalation Ubuntu Server and VMware
 ### Instalation VMware
 - Langkah pertama download VMware pada link ```https://www.vmware.com/products/workstation-player.html```
@@ -62,9 +62,60 @@ Langkah-langkah menginstall: <br>
 ![image VMware](assets/28.png) <br>
 - Selanjutnya masukkan IP Address sesuai dengan IP pada komputer dengan mengganti gateway 255 menjadi 1
 - Apabila sudah IP sudah terganti maka ketik perintah ```netplan apply``` untuk mengkonfirmasi IP yang telah diubah tadi
-- Lalu tes apakah sudah terhubung ke internet dengan mengetik perintah ```ping google.com``` jika berhasil maka akan menghasilkan outpu seperti dibawah <br>
+- Lalu tes apakah sudah terhubung ke internet dengan mengetik perintah ```ping google.com``` jika berhasil maka akan menghasilkan output seperti dibawah <br>
 ![image VMware](assets/29.png) <br>
 - Sekarang coba masuk menggunakan SSH lewat terminal pada operating system linux dengan mengetik perintah ```ssh oman@192.168.100.5``` <br>
 ![image VMware](assets/30.png) <br>
 - Untuk keluar dari linux server menggunakan perintah ```logout``` <br>
 ![image VMware](assets/31.png) <br>
+
+## Basic Shell Scripting (Bash)
+BASH (Bourne Again Shell) adalah bahasa yang berjalan di atas kernel (linux/unix), yang berfungsi sebagai interpreter antara pengguna dan sistem operasi.
+
+### Linux Commands
+- ```mkdir``` perintah yang digunakan untuk membuat sebuah directory <br>
+![image linux commands](assets/32.png) <br>
+- ```ls``` perintah yang digunakan untuk menampilkan file dan directory dalam suatu sistem <br>
+![image linux commands](assets/33.png) <br>
+- ```la -la``` perintah yang digunakan untuk menampilkan semua file dan directory yang tersembunyi dalam suatu sistem <br>
+![image linux commands](assets/34.png) <br>
+- ```cd``` perintah yang digunakan untuk berpindah dari directory ke directory lain
+![image linux commands](assets/35.png) <br>
+- ```touch``` perintah yang digunakan untuk membuat suatu file kosong <br>
+![image linux commands](assets/36.png) <br>
+- ```cp``` perintah yang digunakan untuk menduplikat suatu file <br>
+![image linux commands](assets/37.png) <br>
+- ```mv``` perintah yang digunakan untuk memindahkan file dan merubah nama dari suatu file <br>
+![image linux commands](assets/38.png) <br>
+- ```echo``` perintah yang digunakan untuk menampilkan string dan memasukkan text kedalam file <br>
+![image linux commands](assets/39.png) <br>
+- ```cat``` perintah yang digunakan untuk menampilkan text di dalam suatu file <br>
+![image linux commands](assets/40.png) <br>
+- ```find type -f``` perintah yang digunakan untuk mencari file <br>
+![image linux commands](assets/41.png) <br>
+- ```find type -d``` perintah yang digunakan untuk mencari directory <br>
+![image linux commands](assets/42.png) <br>
+- ```grep``` perintah yang digunakan untuk mencari text di dalam file <br>
+![image linux commands](assets/43.png) <br>
+- ```chmod``` perintah yang digunakan untuk mengubah permisson file atau directory <br>
+![image linux commands](assets/44.png) <br>
+- ```chwon``` perintah yang digunakan untuk mengubah kepemilikan dari file atau directory <br>
+![image linux commands](assets/46.png) <br>
+- ```history``` perintah yang digunakan untuk menampilkan riwayat dari commands sistem <br>
+![image linux commands](assets/47.png) <br>
+- ```history | grep``` perintah yang digunakan untuk mencari text dari riwayat commands sistem <br>
+![image linux commands](assets/48.png) <br>
+- ```ping``` perintah yang digunakan untuk mengecek koneksi internet <br>
+![image linux commands](assets/49.png) <br>
+- ```wget``` perintah yang digunakan untuk mendownload file <br>
+![image linux commands](assets/50.png) <br>
+- ```unzip``` perintah yang digunakan untuk mengekstrak suatu file .zip <br>
+![image linux commands](assets/51.png) <br>
+- ```zip``` perintah yang digunakan untuk mengcompress suatu file atau directory menjadi file .zip <br>
+![image linux commands](assets/52.png) <br>
+- ```adduser``` perintah yang digunakan untuk menambahkan user baru di sistem <br>
+![image linux commands](assets/45.png) <br>
+- ```usermod``` perintah yang digunakan untuk menambahkan user ke dalam group sudo, sehingga pengguna bisa menggunakan syntax sudo <br>
+![image linux commands](assets/53.png) <br>
+- ```deluser``` perintah yang digunakan untuk menghapus user dari sistem <br>
+![image linux commands](assets/54.png) <br>
