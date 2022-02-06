@@ -119,3 +119,149 @@ BASH (Bourne Again Shell) adalah bahasa yang berjalan di atas kernel (linux/unix
 ![image linux commands](assets/53.png) <br>
 - ```deluser``` perintah yang digunakan untuk menghapus user dari sistem <br>
 ![image linux commands](assets/54.png) <br>
+
+# VERSION CONTROL WITH GIT
+Version Control Systems adalah alat yang digunakan untuk mengelola perubahan kode. Tools ini dapat membantu pengembang untuk melacak setiap perubahan yang dilakukan secara terus menerus, VCS (Version Control System) pada dasarnya memiliki database terpusat yang online, jika ingin menggunakannya harus terhubung ke jaringan. <br>
+
+Contoh Version Control Application: <br>
+- GIT
+- SVN
+- CSV
+- Mercurial
+
+## Dokumentasi Perintah Setiap Perintah GIT
+### Tahapan pada GIT
+- Modified adalah tahapan dimana perubahan dilakukan dalam file namun belum ditandai dan disimpan pada git.
+- Staged adalah tahapan menandai revisi yang sudah dilakukan tetapi belum disimpan dalam git (biasanya menggunakan perintah ```git add```)
+- Commited adalah tahapan rivisi sudah disimpan dalam git (menggunakan perintah ```git commit```)
+### Install GIT dan Konfigurasi SSH Key
+- Pertama install git pada terminal terlebih dahulu apabila belum terinstall git pada linux dengan perintah ```sudo apt install git -y```
+- Jika proses instalasi selesai maka bisa megecek version dari git yang terinstall dengan perintah ```git --version``` <br>
+![image git](assets/59.png) <br>
+- ```git config``` adalah suatu perintah git untuk mengatur suatu konfigurasi tertentu sesuai keinginan pengguna seperti membuat username dan password
+  - ```git config --global user.name"oman"``` perintah untuk mengatur email dari user
+  - ```git config --global user.email"oman.anshari@gmail.com"``` perintah untuk mengatur email user
+  - ```git config --list``` perintah yang digunakan untuk melihat user dan email yang digunakan <br>
+  ![image git](assets/58.png) <br>
+- Konfigurasi SSH Key dengan menajalankan perintah ```ssh-keygen``` <br>
+![image git](assets/55.png) <br>
+  - Kemudian jalankan perintah ```cd .ssh``` dan ```cat id_rsa.pub``` untuk melihat SSH Key <br>
+    ![image git](assets/56.png) <br>
+  - Copy SSH Key yang muncul dan masukkan ke dalam config github dengan cara membuka github.com, lalu pilih menu setting. Kemudian pilih SSH and GPG Keys, selanjutnya pilih new SSH Key dan isi dengan SSH Key yang sudah di copy, berikan judul dan pilih Add SSH Key. <br>
+    ![image git](assets/60.png) <br>
+  -  Jika sudah maka akan muncul SSH Key tadi pada menu setting, maka SSH Key akan otomatis masuk ke profil. <br>
+    ![image git](assets/61.png) <br>
+  - Bisa juga di cek pada terminal linux dengan menggunakan perintah ```ssh -T git@github.com``` maka akan menghasilkan output seperti dibawah <br>
+    ![image git](assets/57.png) <br>
+- ```git init``` adalah suatu perintah untuk membuat repository baru <br>
+  - contoh: ```git init oman``` maka akan menghasilkan satu repository baru dengan nama "oman" <br>
+  ![image git](assets/62.png) <br> 
+- ```.gitignore``` adalah suatu perintah untuk membuat suatu file yang berisi daftar file atau directory yang akan di abaikan oleh git <br>
+  - contoh: ```touch .gitignore``` dan buat beberapa file dengan perintah ```touch file1 file2 file3``` <br>
+  ![image git](assets/64.png) <br>
+  - Kemudian ketik perintah ```nano .gitignore``` untuk memasukkan file yang akan diabaikan oleh git
+  - ```git status``` perintah untuk menampilkan daftar file yang berubah bersama dengan file yang ingin ditambahkan atau di commit <br>
+  ![image git](assets/66.png) <br>
+- ```git add``` perintah untuk menambahkan file atau directory ke index
+  - contoh: ```git add .``` perintah untuk menambahkan semua file kecuali, yang terdaftar pada ```.gitignore``` <br>
+  ![image git](assets/67.png) <br>
+- ```git commit``` perintah untuk melakukan commit pada perubahan ke head
+  - ```git commit -m "first commit"``` untuk melakukan commit dengan pesan "first commit" <br>
+  ![image git](assets/68.png) <br>
+  - Masukkan perintah ```git status`` untuk melihat file sudah tersimpan pada database git <br>
+  ![image git](assets/69.png) <br>
+- ```git remote``` perintah untuk membuat user terhubung ke remote repository 
+  - ```git remote -v``` perintah untuk menampilkan repository yang terkonfigurasi <br>
+  ![image git](assets/71.png) <br>
+  - contoh: Melakukan remote pada layanan github
+  - Pertama membuat repository github 
+  - Kemudia masukkan deskripsi atau optional
+  - Lalu tentukan repository berjenis public atau private
+  - Selanjutnya create repository <br>
+  ![image git](assets/72.png) <br>
+  - Apabila proses pembuatan repository selesai, maka jalankan perintah ```git branch -M main``` perintah ini digunakan untuk mengubah nama branch master menjadi main <br>
+  ![image git](assets/73.png)<br>
+  - Kemudian ketik perintah ```git remote add origin git@github.com:NyakTwomanAnshari/oman.git``` perintah ini digunakan untuk menambahkan remote <br>
+  ![image git](assets/70.png) <br>
+  - Lalu ketik perintah ```git push -u origin main``` perintah ini digunakan untuk mengupload data dari repository komputer ke repository github, pada kasus ini terupload pada branch main <br>
+  ![image git](assets/74.png) <br>
+  - Apabila sudah selesai maka cek repository github <br>
+  ![image git](assets/75.png) <br>
+- ```git branch``` perintah yang digunakan untuk membuat versi/branch dari repository. ```git branch -a``` perintah yang digunakan untuk melihat branch aktif. ```git branch nama-branch-baru``` perintah yang digunakan untuk membuat branch baru. ```git branch -d nama-branch``` perintah yang digunakan untuk menghapus branch. <br>
+- ```git checkout``` perintah yang digunakan untuk berpindah antar branch. <br>
+![image git](assets/77.png) <br>
+- ```git push``` perintah yang digunakan untuk mengupload data dari repository komputer ke repository github.
+  - contoh: Membuat branch dengan nama production ```git branch production``` kemudian untuk melihat branch yang aktif sekarang ```git branch -a``` <br>
+  ![image git](assets/76.png) <br>
+  - Lalu pindah dari branch main ke branch production dengan perintah ```git checkout production```
+  - Jika sudah berpindah ke branch production untuk melihatnya ketik perintah ```git branch -a``` <br>
+  ![image git](assets/78.png) <br>
+  - ```git add .``` untuk menambahkan semua file
+  - Apabila sudah maka ketik perintah ```git commit -m "update production"``` <br>
+  ![image git](assets/79.png) <br>
+  - Ketik perintah ```git push -u origin production``` <br>
+  ![image git](assets/80.png) <br>
+  - Jika sudah periksa branch di github, jangan lupa untuk berpindah branch <br>
+  ![image git](assets/81.png) <br>
+- ```git pull``` perintah untuk memperbaharui repository pada komputer atau menyamakan dengan repository github.
+  - contoh: Masuk ke github lalu pilih menu add file dan selanjutnya create new file <br>
+  ![image git](assets/83.png) <br>
+  - Kemudian masukkan nama file dan isi dari file tersebut lalu pilih commit <br>
+  ![image git](assets/82.png) <br>
+  - Apabila sudah masuk ke terminal ketik perintah ```git pull origin production``` <br>
+  ![image git](assets/84.png) <br>
+- ```git clone``` perintah untuk mengunduk repository github ke repository komputer
+  - contoh: Clone repository dari tensorflow untuk mendeteksi objek menggunakan tensorflow
+  - Ketik perintah git clone https://github.com/tensorflow/models.git <br>
+  ![image git](assets/86.png) <br>
+- ```git rm``` perintah untuk menghapus file dari directory.
+  - contoh: ```git rm file1``` <br>
+  ![image git](assets/87.png) <br>
+- ```git show``` perintah untuk menampilkan informasi objek pada git <br>
+![image git](assets/88.png) <br>
+- ```git merge``` perintah untuk menggabungkan sebuah branch ke branch yang aktif <br>
+![image git](assets/105.png) <br>
+
+## Study Case GIT Merge Branch Development, Staging, dan Production
+- Pertama membuat repository baru di github dengan nama study-case <br>
+![image git](assets/89.png) <br>
+- Kemudian ketik perintah ```git init study-case``` pada terminal <br>
+![image git](assets/90.png) <br>
+- Lalu masuk ke diretory study-case dengan perintah ```cd study-case```<br>
+![image git](assets/91.png) <br>
+- Buat suatu file bernama ```main.py``` <br>
+![image git](assets/92.png) <br>
+- Jika sudah buka text editor lalu diisi dengan print ("Hello World!") dengan perintah ```nano main.py```<br>
+![image git](assets/93.py) <br>
+- Ketik perintah ```git status``` untuk melihat daftar file <br>
+![image git](assets/94.png) <br>
+- Selanjutnya ketik perintah ```git add .``` untuk menambahkan semua file ke index <br>
+![image git](assets/95.png) <br>
+- Lalu cek dengan perintah ```git status``` <br>
+![image git](assets/96.png) <br>
+- Ketik perintah ```git commit -m "first commit"``` untuk melakukan commit <br>
+![image git](assets/97.png) <br>
+- Kemudia cek kembali menggunakan peritah ```git status``` <br>
+![image git](assets/98.png) <br>
+- Ubah nama branch menjadi ```main``` dengan perintah ```git branch -m main```<br>
+![image git](assets/99.png) <br>
+- Selanjutnya buat remote dengan perintah ```git remote add origin git@github.com:NyakTwomanAnshari/study-case.git``` <br>
+![image git](assets/100.png)<br>
+- Lalu push terlebih dahulu branch ```main``` dengan perintah ```git push -u origin main``` <br>
+![image git](assets/101.png)<br>
+- Jika sudah buat branch Development, Staging, dan Production dengan perintah ```git branch Development``` ```git branch Staging``` ```git branch Production``` <br>
+![image git](assets/102.png)<br>
+- Lihat dari daftar branch yang telah dibuat dengan perintah ```git branch -a``` <br>
+![image git](assets/103.png)<br>
+- Kemudian pindah ke branch Development dengan perintah ```git checkout Development``` <br>
+![image git](assets/104.png)<br>
+- Gunakan perintah ```git merge Development``` ```git merge Staging``` ```git merge Production``` untuk menggabungkan branch dengan branch aktif <br>
+![image git](assets/105.png)<br>
+- Apabila sudah, push satu persatu branch dengan perintah ```git push -u origin Development``` ```git push -u Staging``` ```git push-u Production``` <br>
+![image git](assets/106.png)<br>
+![image git](assets/107.png)<br>
+![image git](assets/108.png)<br>
+- Jika sudah selesai cek repository github pada masing-masing branch sudah ada file ```main.py``` <br>
+![image git](assets/109.png)<br>
+![image git](assets/110.png)<br>
+![image git](assets/111.png)<br>
