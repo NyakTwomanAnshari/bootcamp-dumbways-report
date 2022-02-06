@@ -212,7 +212,7 @@ Contoh Version Control Application: <br>
   ![image git](assets/84.png) <br>
 - ```git clone``` perintah untuk mengunduk repository github ke repository komputer
   - contoh: Clone repository dari tensorflow untuk mendeteksi objek menggunakan tensorflow
-  - Ketik perintah git clone https://github.com/tensorflow/models.git <br>
+  - Ketik perintah ```git clone https://github.com/tensorflow/models.git``` <br>
   ![image git](assets/86.png) <br>
 - ```git rm``` perintah untuk menghapus file dari directory.
   - contoh: ```git rm file1``` <br>
@@ -232,7 +232,7 @@ Contoh Version Control Application: <br>
 - Buat suatu file bernama ```main.py``` <br>
 ![image git](assets/92.png) <br>
 - Jika sudah buka text editor lalu diisi dengan print ("Hello World!") dengan perintah ```nano main.py```<br>
-![image git](assets/93.py) <br>
+![image git](assets/93.png) <br>
 - Ketik perintah ```git status``` untuk melihat daftar file <br>
 ![image git](assets/94.png) <br>
 - Selanjutnya ketik perintah ```git add .``` untuk menambahkan semua file ke index <br>
