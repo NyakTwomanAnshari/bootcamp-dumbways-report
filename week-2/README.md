@@ -77,7 +77,7 @@ BASH (Bourne Again Shell) adalah bahasa yang berjalan di atas kernel (linux/unix
 ![image linux commands](assets/32.png) <br>
 - ```ls``` perintah yang digunakan untuk menampilkan file dan directory dalam suatu sistem <br>
 ![image linux commands](assets/33.png) <br>
-- ```la -la``` perintah yang digunakan untuk menampilkan semua file dan directory yang tersembunyi dalam suatu sistem <br>
+- ```ls -la``` perintah yang digunakan untuk menampilkan semua file dan directory yang tersembunyi dalam suatu sistem <br>
 ![image linux commands](assets/34.png) <br>
 - ```cd``` perintah yang digunakan untuk berpindah dari directory ke directory lain
 ![image linux commands](assets/35.png) <br>
@@ -139,7 +139,7 @@ Contoh Version Control Application: <br>
 - Jika proses instalasi selesai maka bisa megecek version dari git yang terinstall dengan perintah ```git --version``` <br>
 ![image git](assets/59.png) <br>
 - ```git config``` adalah suatu perintah git untuk mengatur suatu konfigurasi tertentu sesuai keinginan pengguna seperti membuat username dan password
-  - ```git config --global user.name"oman"``` perintah untuk mengatur email dari user
+  - ```git config --global user.name"oman"``` perintah untuk mengatur username dari user
   - ```git config --global user.email"oman.anshari@gmail.com"``` perintah untuk mengatur email user
   - ```git config --list``` perintah yang digunakan untuk melihat user dan email yang digunakan <br>
   ![image git](assets/58.png) <br>
@@ -210,7 +210,7 @@ Contoh Version Control Application: <br>
   ![image git](assets/82.png) <br>
   - Apabila sudah masuk ke terminal ketik perintah ```git pull origin production``` <br>
   ![image git](assets/84.png) <br>
-- ```git clone``` perintah untuk mengunduk repository github ke repository komputer
+- ```git clone``` perintah untuk mengunduh repository github ke repository komputer
   - contoh: Clone repository dari tensorflow untuk mendeteksi objek menggunakan tensorflow
   - Ketik perintah ```git clone https://github.com/tensorflow/models.git``` <br>
   ![image git](assets/86.png) <br>
