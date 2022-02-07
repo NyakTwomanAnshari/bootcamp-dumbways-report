@@ -91,9 +91,9 @@ BASH (Bourne Again Shell) adalah bahasa yang berjalan di atas kernel (linux/unix
 ![image linux commands](assets/39.png) <br>
 - ```cat``` perintah yang digunakan untuk menampilkan text di dalam suatu file <br>
 ![image linux commands](assets/40.png) <br>
-- ```find type -f``` perintah yang digunakan untuk mencari file <br>
+- ```find -type f``` perintah yang digunakan untuk mencari file <br>
 ![image linux commands](assets/41.png) <br>
-- ```find type -d``` perintah yang digunakan untuk mencari directory <br>
+- ```find -type d``` perintah yang digunakan untuk mencari directory <br>
 ![image linux commands](assets/42.png) <br>
 - ```grep``` perintah yang digunakan untuk mencari text di dalam file <br>
 ![image linux commands](assets/43.png) <br>
