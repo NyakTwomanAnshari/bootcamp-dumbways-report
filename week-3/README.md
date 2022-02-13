@@ -36,7 +36,7 @@ Untuk memeriksa nya dapat menggunakan perintah ```nano --version``` <br>
 Contoh: <br>
   - ```cat oman``` Perintah untuk melihat isi dari file yang bernama ```oman``` <br>
   ![image text editor](assets/12.png)<br>
-  - ```cat > file.baru``` Peintah yang digunakan untuk membuat file baru dan memasukkan teks <br>
+  - ```cat > file.baru``` Perintah yang digunakan untuk membuat file baru dan memasukkan teks <br>
   ![image text editor](assets/13.png)<br>
   - ```cat file1 file2 > file3``` Perintah yang digunakan untuk menggabungkan dua file serta menyimpan pada yang ketiga <br>
   ![image text editor](assets/14.png)<br>
@@ -85,7 +85,7 @@ Monitoring adalah aktivitas mengamati performance sistem secara real time <br>
 Contoh: <br>
   - ```ps -f -u omananshari```  Perintah untuk menampilkan proses pada user ```omananshari``` <br>
   ![image text editor](assets/29.png)<br>
-  - ```ps -aux``` Perintah untuk menampilkan semua proses secara lengkap <br>
+  - ```ps -aux``` Perintah untuk menampilkan semua proses secara lengkap dari semua user <br>
   ![image text editor](assets/30.png)<br>
 
 ## Network Firewall
@@ -122,7 +122,7 @@ System performance digunakan untuk memantau server. <br>
   vmstat adalah tools yang digunakan untuk menampilkan penggunaan memory, swap memory, memberi informasi proses sistem, interrupt system, kecepatan I/O dan statistik CPU Secara real time. <br>
   - ```sudo apt install sysstat -y``` Perintah untuk menginstall vmstat <br>
   ![image text editor](assets/42.png) <br>
-  - ```vmstat``` Perintah untuk menjalankan ```vmstat``` <br>
+  - ```vmstat``` Perintah untuk menampilkan penggunaan memory, CPU, dll pada sistem<br>
   ![image text editor](assets/43.png) <br>
   - ```vmstat -sSM``` Perintah untuk mempermudah membaca status dari sistem <br>
   ![image text editor](assets/44.png) <br>
