@@ -34,7 +34,7 @@ Untuk memeriksa nya dapat menggunakan perintah ```nano --version``` <br>
 ### Text Manipulation
 - ```cat``` Perintah yang dapat digunakan untuk melihat isi dari suatu file tanpa harus membuka text editor ```nano``` serta juga dapat mengubah isi file pada output <br>
 Contoh: <br>
-  - ```cat oman```
+  - ```cat oman``` Perintah untuk melihat isi dari file yang bernama ```oman``` <br>
   ![image text editor](assets/12.png)<br>
   - ```cat > file.baru``` Peintah yang digunakan untuk membuat file baru dan memasukkan teks <br>
   ![image text editor](assets/13.png)<br>
