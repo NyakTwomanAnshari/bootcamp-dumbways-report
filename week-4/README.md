@@ -122,7 +122,7 @@ Web Server sebuah software yang menyediakan layanan berupa data. Berfungsi untuk
 - Menyediakan berbagai cache yang terdapat dalam penyimpanan termasuk dokumen yang tidak digunakan
 - Melakukan pengecekan sistem keamanan yang berasal dari permintaan HTTP berdasarkan permintaan klien atau browser web
 - Menyediakan data berdasarkan permintaan yang masuk atau permintaan secara berurutan untuk memastikan keamanan sistem yang berjalan lancar <br>
-Contoh Beberapa Web Server:
+#### Contoh Beberapa Web Server:
 - NGINX
 - Microsoft IIS
 - Apache
