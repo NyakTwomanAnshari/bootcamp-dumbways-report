@@ -37,40 +37,41 @@ Berikut adalah contoh dari application runtime: <br>
 #### Langkah-langkah untuk menginstall python3:
 - Terlebih dahulu ketik perintah pada terminal ```sudo apt update; sudo apt upgrade```
 - Kemudian ketik perintah ```python3 -V``` secara default python3 telah terinstall pada ubuntu. <br>
-![image node.js]() <br>
+![image node.js](assets/14.png) <br>
 - Selanjutnya ketik perintah ```sudo apt install python3-pip``` untuk menginstall package manager dari python3 <br>
-![image node.js]() <br>
+![image node.js](assets/15.png) <br>
 - Lalu ketik perintah ```pip install flask``` untuk menginstall flask. Dimana flash adalah web framewrok dari python. <br>
-![image node.js]() <br>
+![image node.js](assets/16.png) <br>
 
 #### Langkah-langkah membuat aplikasi sederhana python3:
 - Buat suatu directory baru dengan perintah ```mkdir myapp-python```
 - Lalu pindah ke directory ```myapp-python``` <br>
-![image node.js]() <br>
-- Selanjutnya buat file index.py dengan perintah ```nano index.py``` dan tuliskan code program untuk menampilkan ```Hello World``` <br>
-![image node.js]() <br>
+![image node.js](assets/17.png) <br>
+- Selanjutnya buat file index.py dengan perintah ```sudo nano index.py``` dan tuliskan code program untuk menampilkan ```Hello World``` <br>
+![image node.js](assets/18.png) <br>
 - Kemudian buka web browser dengan megetik ```localhost:5000``` <br>
-![image node.js]() <br>
+![image node.js](assets/19.png) <br>
 
 ### Go atau golang
 #### Langkah-langkah untuk menginstall golang:
 - Download dengan perintah ```wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz && sudo su``` <br>
+![omage node.js](assets/21.png)
 - Kemudian extract dan copy dengan perintah ```rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz && exit```
 - Selanjutnya ketik perintah ```export PATH=$PATH:/usr/local/go/bin```
 - Lalu cek version nya dengan perintah ```go version``` <br>
-![image node.js]() <br>
+![image node.js](assets/22.png) <br>
 
 #### Langkah-langkah membuat aplikasi sederhana golang:
 - Buat suatu directory baru dengan perintah ```mkdir myapp-golang```
 - Lalu pindah ke directory ```myapp-golang``` <br>
-![image node.js]() <br>
+![image node.js](assets/23.png) <br>
 - Selanjutnya buat file index.go dengan perintah ```nano index.go``` dan tuliskan code program untuk menampilkan ```Hello World``` <br>
-![image node.js]() <br>
+![image node.js](assets/24.png) <br>
 - Kemudian ketik perintah ```go run index.go``` untuk menjalankan aplikasi ```index.go``` <br>
-![image node.js]() <br>
+![image node.js](assets/25.png) <br>
 - Build aplikasi index.go dengan perintah ```go build index.go```
 - Untuk menjalankan aplikasi yang terlah di build dengan perintah ```./index``` <br>
-![image node.js]() <br>
+![image node.js](assets/26.png) <br>
 
 ### PM2
 PM2 adalah management proses produksi utuk aplikasi node.js dengan load balancer. Hal ini memungkinkan anda untuk menjaga aplikasi tetap hidup selamanya, untuk memuat ulang tanpa downtime dan untuk menfasilitasi tugas-tugas sistem admin pada umumnya.
