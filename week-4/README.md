@@ -56,7 +56,7 @@ Berikut adalah contoh dari application runtime: <br>
 ### Go atau golang
 #### Langkah-langkah untuk menginstall golang:
 - Download dengan perintah ```wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz && sudo su``` <br>
-![omage node.js](assets/21.png)
+![image node.js](assets/21.png)
 - Kemudian extract dan copy dengan perintah ```rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz && exit```
 - Selanjutnya ketik perintah ```export PATH=$PATH:/usr/local/go/bin```
 - Lalu cek version nya dengan perintah ```go version``` <br>
@@ -158,7 +158,8 @@ Proses load balancing adalah gabungan dari proses Reverse Proxy untuk multiple b
 
 #### Langkah-langkah Membuat Load Balancing:
 - Buat 2 ubuntu server di VMware
-- Install  nginx dan node.jspada masing-masing ubuntu server <br>
+- Remote 2 server tersebut dengan ssh dengan perintah ```ssh oman@192.168.100.6``` dan ```ssh anshari@192.168.100.7```
+- Install  nginx dan node.js pada masing-masing ubuntu server <br>
 ![image load balancing](assets/46.png) <br>
 ![image load balancing](assets/47.png) <br>
 ![image load balancing](assets/48.png) <br>
@@ -170,7 +171,7 @@ Proses load balancing adalah gabungan dari proses Reverse Proxy untuk multiple b
 ![image load balancing](assets/64.png) <br>
 - Kemudian pindah kembali ke directory nginx, selanjutnya buka file nginx.conf dengan perintah ```sudo nano nginx.conf``` lalu tambahkan perintah seperti pada gambar dibawah <br>
 ![image load balancing](assets/63.png) <br>
-- Apabila sudah pindah ke root buat directory baru untuk membuat aplikasi node.js```mkdir app-nodejs```
+- Apabila sudah pindah ke root dan buat directory baru untuk menyimpan aplikasi node.js```mkdir app-nodejs```
 - Kemudian inisialisai dengan perintah ```npm init -y``` lalu install express ```npm install express --save```
 - Selanjut nya buat file index.js ```sudo nano index.js``` dengan berisikan seperti pada gambar dibawah <br>
 ![image load balancing](assets/49.png) <br>
