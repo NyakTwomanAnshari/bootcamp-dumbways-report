@@ -49,6 +49,7 @@ Berikut adalah contoh dari application runtime: <br>
 ![image node.js](assets/17.png) <br>
 - Selanjutnya buat file index.py dengan perintah ```sudo nano index.py``` dan tuliskan code program untuk menampilkan ```Hello World``` <br>
 ![image node.js](assets/18.png) <br>
+- Lalu jalankan perintah ```python3 index.py``` untuk menjalankan aplikasi python
 - Kemudian buka web browser dengan megetik ```localhost:5000``` <br>
 ![image node.js](assets/19.png) <br>
 
