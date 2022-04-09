@@ -24,7 +24,7 @@
 ### Week 1 Bootcamp-DevOps
 - Cloud Computing and IDCH
 - Managed Database and Setup Backend
-- [Baca lebih lanjut](preparation-bootcamp-devops/week-1/README.md)
+- [Baca lebih lanjut](bootcamp-devops/week-1/README.md)
   
 ### Week 2 Bootcamp-DevOps
 - null
