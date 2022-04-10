@@ -106,7 +106,7 @@
 - Kemudian masuk ke dalam directory wayshub-backend ```cd wayshub-backend```
 - Lalu instal node module dengan perintah ```npm install``` atau ```npm i``` <br>
 ![image server](assets/33.png) <br>
-- Apabila sudah, jalankan perintah ```sudo nano config/config.json``` untuk mengubah pada block ```development``` username, password, database, dan host sesuai dengan yang data pada mysql <br>
+- Apabila sudah, jalankan perintah ```sudo nano config/config.json``` untuk mengubah pada block ```development``` username, password, database, dan host sesuai dengan mysql <br>
 ![image server](assets/34.png) <br>
 - Lalu install sequelize dengan perintah ```npm install sequelize-cli -g``` <br>
 ![image server](assets/35.png) <br>
