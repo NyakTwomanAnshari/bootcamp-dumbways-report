@@ -27,9 +27,10 @@
 - [Baca lebih lanjut](bootcamp-devops/week-1/README.md)
   
 ### Week 2 Bootcamp-DevOps
-- null
-- null
-- null
+- Docker
+- Docker Swarm
+- CI/CD (Jenkins)
+- [Baca lebih lanjut](bootcamp-devops/week-2/README.md)
 ### Week 3 Bootcamp-DevOps
 - null
 - null

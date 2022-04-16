@@ -139,8 +139,8 @@ Contoh Version Control Application: <br>
 - Jika proses instalasi selesai maka bisa megecek version dari git yang terinstall dengan perintah ```git --version``` <br>
 ![image git](assets/59.png) <br>
 - ```git config``` adalah suatu perintah git untuk mengatur suatu konfigurasi tertentu sesuai keinginan pengguna seperti membuat username dan password
-  - ```git config --global user.name"oman"``` perintah untuk mengatur username dari user
-  - ```git config --global user.email"oman.anshari@gmail.com"``` perintah untuk mengatur email user
+  - ```git config --global user.name "oman"``` perintah untuk mengatur username dari user
+  - ```git config --global user.email "oman.anshari@gmail.com"``` perintah untuk mengatur email user
   - ```git config --list``` perintah yang digunakan untuk melihat user dan email yang digunakan <br>
   ![image git](assets/58.png) <br>
 - Konfigurasi SSH Key dengan menajalankan perintah ```ssh-keygen``` <br>
