@@ -216,7 +216,7 @@ Beberapa Tools CI/CD:
 ![image docker](assets/93.png) <br>
 - Untuk melihat apakah jenkins sudah berjalan dengan perintah ```sudo systemctl status jenkins``` <br>
 ![image docker](assets/131.png) <br>
-- Apabila proses instalasi berhasil, selanjutnya masuk ke web browser masukkan URL jenkins ```https://jenkins.oman.studentdumbways.my.id`` <br>
+- Apabila proses instalasi berhasil, selanjutnya masuk ke web browser masukkan URL jenkins ```https://jenkins.oman.studentdumbways.my.id``` <br>
 ![image docker](assets/135.png) <br>
 - Kemudian ketik perintah pada server jenkins ```sudo cat /var/lib/jenkins/secrets/initialAdminPassword``` <br>
 ![image docker](assets/95.png) <br>
@@ -224,7 +224,7 @@ Beberapa Tools CI/CD:
 ![image docker](assets/96.png) <br>
 ![image docker](assets/97.png) <br>
 - Apabila plugins berhasil di install, selanjutnya ```Create First Admin User``` masukkan username, password, confirm password, dan email lalu pilih ```save and continue```<br>
-[image docker](assets/98.png) <br>
+![image docker](assets/98.png) <br>
 - Masuk ke menu ```Instance Configuration``` pilih ```save and finish``` <br>
 ![image docker](assets/99.png) <br>
 - Maka akan masuk ke halaman ```Jenkins is ready!``` lalu pilih ```Start using Jenkins``` <br>
@@ -239,8 +239,10 @@ Beberapa Tools CI/CD:
 ![image docker](assets/103.png) <br>
 ![image docker](assets/106.png) <br>
 ![image docker](assets/107.png) <br>
+- Masuk ke server aplikasi copy ```id_rsa``` ke kolom ```private key``` pada jenkins kemudian pilih ok <br>
 ![image docker](assets/108.png) <br>
-- Pergi ke web browser buka ```github.com``` dan buat sebuah repository baru dengan nama ```wayshub-jenkins```
+- Copy juga ```id_ras.pub``` ke ```authorized_keys``` pada server aplikasi
+- Pergi ke web browser buka ```github.com``` dan buat sebuah repository baru dengan nama ```wayshub-jenkins``` dan copy ```id_rsa.pub``` kemudian masukkan ke ```SSH dan GPG keys```
 - Kemudian masuk ke server ```oman@app-oman``` lalu ubah remote dengan ```git remote set-url origin git@github.com:NyakTwomanAnshari/wayshub-jenkins.git``` <br>
 - Selanjutnya buat sebuah file dengan nama Jenkins dengan konfigurasi sebagai berikut ```sudo nano Jenkinsfile``` <br>
 ![image docker](assets/136.png) <br>
