@@ -7,14 +7,14 @@ Docker adalah perangkat lunak yang dapat digunakan untuk build, test, dan deploy
 ![image docker](assets/1.png) <br>
 - Masuk ke server IDCH yang telah dibuat ```ssh oman@103.174.114.40``` <br>
 ![image docker](assets/2.png) <br>
-- Jalankan perintah ```sudo apt-get update``` lalu ```sudo apt-get install ca-certificates curl gnupg lsb-release``` <br>
+- Jalankan perintah ```sudo apt update``` lalu ```sudo apt install ca-certificates curl gnupg lsb-release``` <br>
 ![image docker](assets/3.png) <br>
 ![image docker](assets/4.png) <br>
 - Kemudian ```curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg``` <br>
 ![image docker](assets/5.png) <br>
 - Selanjutnya ```echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null``` <br>
 ![image docker](assets/6.png) <br>
-- Lalu jalankan ```sudo apt-get update``` dan ```sudo apt-get install docker-ce docker-ce-cli containerd.io``` <br>
+- Lalu jalankan ```sudo apt update``` dan ```sudo apt install docker-ce docker-ce-cli containerd.io``` <br>
 ![image docker](assets/7.png) <br>
 ![image docker](assets/8.png) <br>
 - Cek version docker dengan perintah ```docker -v``` <br>
@@ -88,7 +88,7 @@ Docker adalah perangkat lunak yang dapat digunakan untuk build, test, dan deploy
 - ```docker network rm oman-network``` adalah perintah menghapus network dengan nama oman-network <br>
 ![image docker](assets/43.png) <br>
 
-### Deployment Aplikasi Frontend 
+### Deployment Aplikasi Backend
 - ```git config --global user.name "NyakTwomanAnshari"``` perintah untuk mengatur username dari user github.
 - ```git config --global user.email "oman.anshari@gmail.com"``` perintah untuk mengatur email user github.
 - ```git config --list``` perintah yang digunakan untuk melihat user dan email yang digunakan. <br>
@@ -97,22 +97,6 @@ Docker adalah perangkat lunak yang dapat digunakan untuk build, test, dan deploy
 - Masuk ke directory .ssh dengan perintah ```cd .ssh``` kemudaian lihat isi dari file id_rsa.pub ```cat id_rsa.pub```, selanjutnya copy id_rsa.pub tersebut.
 - Selanjutnya masuk ke menu setting pada github pilih SSH dan GPG keys, kemudian pilih new SSH key dan isi title sesuai keinginan dan key dengan SSH yang telah di copy tadi.
 - Kemudian clone aplikasi frontend dengan perintah ```git clone git@github.com:NyakTwomanAnshari/wayshub-frontend.git```
-- Apabila sudah masuk ke dalam directory wayshub-frontend dengan perintah ```cd wayshub-frontend```
-- Lalu buat sebuah Dockerfile dengan perintah ```nano Dockerfile``` dan isi dengan konfigurasi berikut <br>
-![image docker](assets/49.png) <br>
-- Lanjut, jalankan perintah ```docker build -t omananshari/wayshub-fe:1.0 .``` untuk build images dengan nama omananshari/wayshub-fe dengan tag 1.0 dan titik digunakan untuk membaca Dockerfile<br>
-![image docker](assets/46.png) <br>
-- Selanjutnya jalankan perintah ```docker login``` untuk masuk ke docker hub
-- Kemudian jalankan perintah ```docker push omananshari/wayshub-fe:1.0``` untuk push ke registry docker hub dengan nama images omananshari/wayshub-fe:1.0 <br>
-![image docker](assets/53.png) <br>
-![image docker](assets/45.png) <br>
-![image docker](assets/54.png) <br>
-- Jalankan perintah ```docker container create --name frontend -p 3333:3000 omananshari/wayshub-fe:1.0```
-- Lalu jalankan container dengan perintah ```docker start frontend``` untuk menjalankan container dengan nama forntend
-- Masuk ke web browser kemudian masukkan IP dan port dari aplikasi frontend yang berhasil di jalankan. <br>
-![image docker](assets/47.png) <br>
-
-### Deployment Aplikasi Backend
 - Masuk ke dalam directory wayshub-backend dengan perintah ```cd wayshub-backend```
 - Lalu buat sebuah Dockerfile dengan perintah ```nano Dockerfile``` dan isi dengan konfigurasi berikut <br>
 ![image docker](assets/50.png) <br>
@@ -120,9 +104,37 @@ Docker adalah perangkat lunak yang dapat digunakan untuk build, test, dan deploy
 - Kemudian jalankan perintah ```docker push omananshari/wayshub-be:1.0``` untuk push ke registry docker hub dengan nama images omananshari/wayshub-fe:1.0 <br>
 ![image docker](assets/54.png) <br>
 - Jalankan perintah ```docker container create --name backend -p 5555:5000 omananshari/wayshub-be:1.0``` 
-- Lalu jalankan container dengan perintah ```docker start backend``` untuk menjalankan container dengan nama forntend
-- Masuk ke web browser kemudian masukkan IP dan port dari aplikasi frontend yang berhasil di jalankan. <br>
-![image docker](assets/48.png) <br>
+- Masuk ke server nginx, lalu masuk ```cd /etc/nginx``` kemudian buat directory baru ```mkdir wayshub-be``` untuk menyimpan konfigurasi reverse proxy. Selanjutnya buat file untuk melakukan konfigurasi reverse proxy ```sudo nano wayshub``` 
+- Buat URL aman menggunakan certbot. Jalankan certbot ```sudo certbot``` lalu pilih URL yang ingin di beri certificated certbot, tunggu hingga selesai. <br>
+![image docker](assets/115.png) <br>
+- Pindah ke server aplikasi, lalu jalankan container dengan perintah ```docker start backend``` untuk menjalankan container dengan nama backend
+- Masuk ke web browser, kemudian masukkan URL dari aplikasi backend yang  telah di beri certificated certbot ```https://api.oman.studentdumbways.my.id``` <br>
+![image docker](assets/117.png) <br>
+
+### Deployment Frontend
+- Pinda ke directory wayshub-frontend dengan perintah ```cd wayshub-frontend```
+- Lalu buat sebuah Dockerfile dengan perintah ```nano Dockerfile``` dan isi dengan konfigurasi berikut <br>
+![image docker](assets/49.png) <br>
+- Selanjutnya, jalankan perintah ```sudo nano /srcconfig/api.js``` ubah baseURL menjadi URL aplikasi backend <br>
+![image docker](assets/118.png) <br>
+- Lanjut, jalankan perintah ```docker build -t omananshari/wayshub-fe:1.0 .``` untuk build images dengan nama omananshari/wayshub-fe dengan tag 1.0 dan titik digunakan untuk membaca Dockerfile<br>
+![image docker](assets/46.png) <br>
+![image docker](assets/119.png) <br>
+- Selanjutnya jalankan perintah ```docker login``` untuk masuk ke docker hub
+- Kemudian jalankan perintah ```docker push omananshari/wayshub-fe:1.0``` untuk push ke registry docker hub dengan nama images omananshari/wayshub-fe:1.0 <br>
+![image docker](assets/53.png) <br>
+![image docker](assets/54.png) <br>
+- Jalankan perintah ```docker container create --name frontend -p 3333:3000 omananshari/wayshub-fe:1.0```
+![image docker](assets/120.png) <br>
+- Masuk ke server nginx, lalu masuk ```cd /etc/nginx``` kemudian buat directory baru ```mkdir wayshub-fe``` untuk menyimpan konfigurasi reverse proxy. Selanjutnya buat file untuk melakukan konfigurasi reverse proxy ```sudo nano wayshub```
+- Buat URL yang menjadi aman menggunakan certbot. Jalankan certbot ```sudo certbot``` lalu pilih URL yang ingin di beri certificated certbot, tunggu hingga selesai. <br>
+![image docker](assets/138.png) <br>
+- Pindah ke server aplikasi, lalu jalankan container dengan perintah ```docker start frontend``` untuk menjalankan container dengan nama forntend <br>
+![image docker](assets/121.png) <br>
+- Masuk ke web browser, kemudian masukkan URL dari aplikasi backend yang  telah di beri certificated certbot ```https://oman.studentdumbways.my.id```. <br>
+![image docker](assets/122.png) <br>
+![image docker](assets/123.png) <br>
+![image docker](assets/124.png) <br>
 
 ### Docker Compose
 - Pertama install engine dari docker compose dengan perintah ```sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose``` <br>
@@ -135,58 +147,6 @@ Docker adalah perangkat lunak yang dapat digunakan untuk build, test, dan deploy
 ![image docker](assets/58.png) <br>
 - Selanjutnya jalankan perintah ```docker-compose up -d``` untuk membuat container dari docker compose <br>
 ![image docker](assets/59.png) <br>
-
-### Reverse Proxy
-#### Aplikasi Backend
-- Buat sebuah server nginx di IDCH <br>
-![image docker](assets/64.png) <br>
-- Buka web browser login halaman cloudflare.com dengan akun mentor <br>
-![image docker](assets/55.png) <br>
-- Selanjutnya pilih domain ```studentdumbways.my.id``` lalu pilih ```add record``` dan isi pada kolom nama dengan ```api.oman``` dan kolom IPv4 dengan ```103.176.78.66``` IP server nginx. 
-- Selanjutnya masuk ke dalam server nginx tersebut.
-- Kemudian jalankan perintah ```cd /etc/nginx/``` lalu buat sebuah directory baru untuk menyimpan konfigurasi reverse proxy dengan perintah ```mkdir wayshub```
-- Masuk ke directory wayshub ```cd wayshub``` lalu buat konfigurasi dengan perintah ```sudo nano wayshub``` dan isi konfigurasi sebagai berikut <br>
-![image docker](assets/60.png) <br>
-- Cek apakah konfigurasi yang dibuat benar atau salah dengan perintah ```sudo nginx -t``` <br>
-![image docker](assets/61.png) <br>
-- Selanjutnya pindah kembali ke directory nginx lalu jalankan perintah ```sudo nano nginx.conf``` pada baris include masukkan directory yang telah di buat konfigurasi nya <br>
-![image docker](assets/62.png) <br>
-- Kemudian restart nginx dengan perintah ```sudo systemctl restart nginx```
-- Buka web browser, untuk memastikan apakah domain tersebut bisa di akses dengan mengetik nama domain pada web browser ```api.oman.studentdumbways.my.id``` <br>
-![image docker](assets/63.png) <br>
-
-#### Aplikasi Frontend
-- Buat sebuah server nginx di IDCH <br>
-![image docker](assets/64.png) <br>
-- Buka web browser login halaman cloudflare.com dengan akun mentor
-- Selanjutnya pilih domain ```studentdumbways.my.id``` lalu pilih ```add record``` dan isi pada kolom nama dengan ```oman``` dan kolom IPv4 dengan ```103.176.78.66``` IP server nginx. 
-- Selanjutnya masuk ke dalam server nginx tersebut.
-- Kemudian jalankan perintah ```cd /etc/nginx/``` lalu buat sebuah directory baru untuk menyimpan konfigurasi reverse proxy dengan perintah ```mkdir wayshub-fe```
-- Masuk ke directory wayshub-fe ```cd wayshub-fe``` lalu buat konfigurasi dengan perintah ```sudo nano wayshub-fe``` dan isi konfigurasi sebagai berikut
-- Cek apakah konfigurasi yang dibuat benar atau salah dengan perintah ```sudo nginx -t```
-- Selanjutnya pindah kembali ke directory nginx lalu jalankan perintah ```sudo nano nginx.conf``` pada baris include masukkan directory yang telah di buat konfigurasi nya <br>
-![image docker](assets/66.png) <br>
-- Kemudian restart nginx dengan perintah ```sudo systemctl restart nginx```
-- Buka web browser, untuk memastikan apakah domain tersebut bisa di akses dengan mengetik nama domain pada web browser ```oman.studentdumbways.my.id``` <br>
-![image docker](assets/65.png) <br>
-
-### SSL (Secure Sockets Layer)
-- Pertama masuk ke menu My Profile pada cloudflare selanjutnya pilih API Tokens dan view Global API key lalu copy API Key tersebut. <br>
-![image docker](assets/69.png) <br>
-![image docker](assets/68.png) <br>
-- Selanjutnya masuk pada server nginx, lalu buat suatu directory baru dengan nama .secrets ```sudo mkdir .secrets```
-- Kemudian masuk ke directory .secrets ```cd .secrets``` buat file dengan nama oman.ini dengan perintah ```sudo nano oman.ini``` dengan konfigurasi berikut <br>
-![image docker](assets/70.png) <br>
-![image docker](assets/71.png) <br>
-- Apabila sudah, buka web browser cari tools certbot!<br>
-[image docker](assets/72.png) <br>
-- Lalu install certbot pada server nginx dengan perintah ```sudo snap install --classic certbot``` <br>
-![image docker](assets/73.png) <br>
-- Selanjutnya jalankan certbot ```sudo certbot``` dan pilih sesuai konfigurasi sesuai keinginan dan pilih domain mana yang ingin dipakaikan certificated
-- Untuk melihat certificated dengan perintah ```cat /etc/nginx/wayshub-fe/wayshub-fe``` <br>
-![image docker](assets/74.png) <br>
-- Buka web browser untuk memastikan apakah domain telah terpasangkan certificated dengan mengetikkan ```https://oman.studentdumbways.my.id``` <br>
-![image docker](assets/75.png) <br>
 
 # DOCKER SWARM
 Docker swarm adalah teknologi yang dibuat untuk memudahkan pendistribusian aplikasi pada docker yang terdiri dari server. Dockers swarm memudahkan kita untuk mengelola container docker yang menggunakan banyak server. <br>
@@ -233,17 +193,31 @@ Beberapa Tools CI/CD:
 - CircleCI
 - Jenkins
 
-## Langkah-langkah menginstall Jenkins
+## Langkah-langkah menginstall dan setup CI/CD Jenkins
 - Buat server dengan nama ```jenkins-oman``` di IDCH.
 - Masuk ke dalam server tersebut ```ssh oman@103.31.39.200```
-- Jalankan perintah ```sudo apt update``` dan ```sudo apt install openjdk-11-jre``` <br>
+- Buka web browser login halaman cloudflare.com dengan akun mentor
+- Selanjutnya pilih domain ```studentdumbways.my.id``` lalu pilih ```add record``` dan isi pada kolom nama dengan ```jenkins.oman``` dan kolom IPv4 dengan ```103.176.78.66``` IP server nginx. 
+- Selanjutnya masuk ke dalam server nginx tersebut
+- Kemudian jalankan perintah ```cd /etc/nginx/``` lalu buat sebuah directory baru untuk menyimpan konfigurasi reverse proxy dengan perintah ```mkdir jenkins```
+- Masuk ke directory jenkins ```cd jenkins``` lalu buat file dengan nama jenkins untuk menyimpan konfigurasi dengan perintah ```sudo nano jenkins``` dan isi konfigurasi sebagai berikut <br>
+![image docker](assets/133.png) <br>
+- Cek apakah konfigurasi yang dibuat benar atau salah dengan perintah ```sudo nginx -t```
+- Selanjutnya pindah kembali ke directory nginx lalu jalankan perintah ```sudo nano nginx.conf``` pada baris include masukkan directory yang telah di buat konfigurasi nya <br>
+![image docker](assets/134.png) <br>
+- Kemudian restart nginx dengan perintah ```sudo systemctl restart nginx```
+- Buat URL menjadi aman menggunakan certbot. Jalankan certbot ```sudo certbot``` lalu pilih URL yang ingin di beri certificated certbot, tunggu hingga selesai. <br>
+![image docker](assets/114.png) <br>
+![image docker](assets/116.png) <br>
+- Masuk ke server jenkins, lalu jalankan perintah ```sudo apt update``` dan ```sudo apt install openjdk-11-jre``` <br>
 ![image docker](assets/92.png) <br>
-- Selanjutnya ```curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null``` lalu ```echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null``` <br>
-![image docker](assets/93.png) <br>
+- Selanjutnya ```curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null``` lalu ```echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null```
 - Jalankan kembali ```sudo apt update``` dan install jenkins ```sudo apt install jenkins``` <br>
 ![image docker](assets/93.png) <br>
-- Apabila proses instalasi berhasil, selanjutnya masuk ke web browser masukkan IP server jenkins tersebut dan port jenkins ```103.31.39.200:8080``` <br>
-![image docker](assets/94.png) <br>
+- Untuk melihat apakah jenkins sudah berjalan dengan perintah ```sudo systemctl status jenkins``` <br>
+![image docker](assets/131.png) <br>
+- Apabila proses instalasi berhasil, selanjutnya masuk ke web browser masukkan URL jenkins ```https://jenkins.oman.studentdumbways.my.id`` <br>
+![image docker](assets/135.png) <br>
 - Kemudian ketik perintah pada server jenkins ```sudo cat /var/lib/jenkins/secrets/initialAdminPassword``` <br>
 ![image docker](assets/95.png) <br>
 - Kembali ke web browser yang sudah dijalankan jenkins pilih ```install suggested plugins``` dan tunggu hingga plugins berhasil di install <br>
@@ -266,17 +240,20 @@ Beberapa Tools CI/CD:
 ![image docker](assets/106.png) <br>
 ![image docker](assets/107.png) <br>
 ![image docker](assets/108.png) <br>
-- Pergi ke web browser buka ```github.com``` dan buat sebuah repository baru <br>
-![image docker](assets/112.png) <br>
-- Kemudian masuk ke server ```oman@app-oman``` lalu ubah remote dengan ```git remote set-url origin git@github.com:NyakTwomanAnshari/wayshub-fe-jenkins.git``` <br>
-![image docker](assets/111.png) <br>
-- Selanjutnya buat sebuah file dengan nama Jenkins dengan konfigurasi sebagai berikut ```sudo nano Jenkins``` <br>
-![image docker](assets/113.png) <br>
-- Apabila sudah, kembali ke dashboard pilih ```New Item``` lalu masukkan pada kolom item name sesuai keinginan dan pilih ```Pipeline``` <br>
-![image docker](assets/109.png) <br>
+- Pergi ke web browser buka ```github.com``` dan buat sebuah repository baru dengan nama ```wayshub-jenkins```
+- Kemudian masuk ke server ```oman@app-oman``` lalu ubah remote dengan ```git remote set-url origin git@github.com:NyakTwomanAnshari/wayshub-jenkins.git``` <br>
+- Selanjutnya buat sebuah file dengan nama Jenkins dengan konfigurasi sebagai berikut ```sudo nano Jenkinsfile``` <br>
+![image docker](assets/136.png) <br>
+- Lalu push semua file di directory ```wayshub-frontend``` ke repository github```wayshub-jenkins```
+![image docker](assets/126.png) <br>
+- Pada repository wayshub-jenkins pilih menu ```setting``` lalu pilih menu ```Webhooks``` dan pili ```add webhooks``` kemudian masukkan url jenkins disertai dengan /github-webhook/ ```https://jenkins.oman.studentdumbways.my.id/github-webhook/``` untuk mentrigger perubahan pada GitHub sehingga jenkins otomatis re-build dan akhiri dengan pilih save<br>
+![image docker](assets/130.png) <br>
+- Kembali ke dashboard Jenkins pilih ```New Item``` lalu masukkan pada kolom item name sesuai keinginan dan pilih ```Pipeline``` <br>
+![image docker](assets/127.png) <br>
 - Pada menu ```Build Triggers``` centang ```GitHub hook trigger for GITScm polling``` <br>
-![image docker](assets/110.png) <br>
-- Selanjutnya pada menu ```Pipeline``` masukkan repository yang telah dibuat tadi, pilih ```Credentials``` oman(GitHub) dan ```Branch Specifer (blank or any)``` dengan */main <br>
-![image docker](assets/114.png) <br>
+![image docker](assets/137.png) <br>
+- Selanjutnya pada menu ```Pipeline``` masukkan repository yang telah dibuat tadi, pilih ```Credentials``` ```oman(GitHub)``` dan ```Branch Specifer (blank or any)``` dengan ```*/main``` <br>
+![image docker](assets/128.png) <br>
+![image docker](assets/129.png) <br>
 - Kemudian pilih ```Build Now``` tunggu sampai proses build selesai <br>
-![image docker](assets/115.png) <br>
+![image docker](assets/132.png) <br>
