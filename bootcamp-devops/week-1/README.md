@@ -111,7 +111,7 @@
 - Lalu install sequelize dengan perintah ```npm install sequelize-cli -g``` <br>
 ![image server](assets/35.png) <br>
 - Untuk melihat version dari sequelize dengan perintah ```sequelize --version``` <br>
-![image server](assets/36) <br>
+![image server](assets/36.png) <br>
 - Jalankan perintah ```npx sequelize db:migrate``` untuk memigrasi data ke database <br>
 ![image server](assets/37.png) <br>
 - Selanjutnya masuk ke server database dan cek apakah data sudah termigrasi <br>
