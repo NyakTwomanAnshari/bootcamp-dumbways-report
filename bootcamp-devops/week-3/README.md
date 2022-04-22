@@ -185,15 +185,15 @@
 ![image monitoring](assets/64.png) <br>
 
 - Setup docker daemon ```cat <<EOF | sudo tee /etc/docker/daemon.json```
-> {
-> "exec-opts": ["native.cgroupdriver=systemd"],
-> "log-driver": "json-file",
-> "log-opts": {
-> "max-size": "100m"
-> },
-> "storage-driver": "overlay2"
-> }
-> EOF <br>
+- ```{```
+- ```"exec-opts": ["native.cgroupdriver=systemd"],```
+- ```"log-driver": "json-file",```
+- ```"log-opts": {```
+- ```"max-size": "100m"```
+- ```},```
+- ```"storage-driver": "overlay2"```
+- ```}```
+- ```EOF``` <br>
 ![image monitoring](assets/65.png) <br>
 
 - Jalankan perintah ```sudo systemctl enable docker```
@@ -208,7 +208,8 @@
 ![image monitoring](assets/67.png) <br>
 
 - Kubeadm setup, jalankan perintah dan masukkan IP Private dari server pada baris --apiserver-advertise-address```sudo kubeadm init --apiserver-advertise-address=103.171.85.240 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all``` <br>
-![image monitoring](assets/) <br>
+![image monitoring](assets/70.png) <br>
+![image monitoring](assets/74.png) <br>
 
 - Kubeconfig, jalankan perintah ```mkdir -p $HOME/.kube```
 - ```sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config```
@@ -216,12 +217,60 @@
 ![image monitoring](assets/69.png) <br>
 
 - Config network perintah ```kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://projectcalico.docs.tigera.io/manifests/calico.yaml``` <br>
-- ```kubectl get pods --all-namespaces```
-![image monitoring](assets/) <br>
+![image monitoring](assets/73.png) <br>
 
-- Join cluster perintah ```kubeadm token create --print-join-command```
-- ```kubectl get nodes``` <br>
-![image monitoring](assets/) <br>
+- ```kubectl get pods --all-namespaces``` <br>
+![image monitoring](assets/77.png) <br>
 
-- Change label dengan perintah ```kubectl label node worker node-role.kubernetes.io/worker=worker``` <br>
-![image monitoring](assets/) <br>
+- Join cluster perintah ```kubeadm token create --print-join-command``` untuk mengenerate token <br>
+![image monitoring](assets/76.png) <br>
+
+- Copy token tersebut di nodes server <br>
+![image monitoring](assets/79.png) <br>
+![image monitoring](assets/78.png) <br>
+
+- Jalankan perintah ```kubectl get nodes``` untuk melihat nodes yang telah join dengan server manager<br>
+![image monitoring](assets/80.png) <br>
+
+- Change label dengan perintah ```kubectl label node worker node-role.kubernetes.io/worker=worker``` 
+
+- Deploy simple aplikasi nginx dengan perintah ```kubectl create deploy nginx --image nginx``` untuk membuat service nginx
+
+- ```kubectl expose deploy nginx --port 80 --type NodePort``` untuk mendeploy service nginx
+
+- ```kubectl get svc``` digunakan untuk melihat service yang berjalan pada kubernetes <br>
+![image monitoring](assets/81.png) <br>
+
+- Masuk ke web browser dan ketik IP dan port dari nginx tersebut <br>
+![image monitoring](assets/82.png) <br>
+
+## Mendeploy Applikasi Microservice
+- clone terlebih dahulu aplikasi nya ```git clone https://github.com/dumbwaysdev/dumbways-microservices.git``` <br>
+![image monitoring](assets/83.png) <br>
+  
+- Masuk ke directory aplikasi ```cd dumbways-microservices```
+
+- Edit file docker-compose.yml seperti berikut <br>
+![image monitoring](assets/85.png) <br>
+
+- Edit juga file kubernetes.yml seperti berikut <br>
+![image monitoring](assets/86.png) <br>
+
+- Login ke docker hub dengan perintah ```docker login``` <br>
+![image monitoring](assets/84.png) <br>
+
+- Jalankan ```docker-compose build``` untuk membuat images dari file docker-compose.yml <br>
+![image monitoring](assets/87.png) <br>
+
+- Apabila sudah selesai build, maka push ke docker hub dengan perintah ```docker push nama_images:tag``` <br>
+![image monitoring](assets/89.png) <br>
+![image monitoring](assets/90.png) <br>
+
+- Deploy applikasi menggunakan kubernetes dengan perintah ```kubectl apply -f kubernetes.yml``` <br>
+![image monitoring](assets/91.png) <br>
+
+- ```kubectl get pods``` untuk melihat pods yang berhasil dibuat <br>
+![image monitoring](assets/92.png) <br>
+
+- Selanjutnya deploy pods dengan perintah ```kubectl expose deploy todo-profile --port 5001 --type NodePort``` dan ```kubectl get svc``` untul melihat service yang sudah berjalan <br>
+![image monitoring](assets/93.png) <br>
