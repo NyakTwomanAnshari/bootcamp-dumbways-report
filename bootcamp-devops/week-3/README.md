@@ -162,13 +162,12 @@
 ### Install Docker
 
 - Buat file dengan nama docker.yml ```sudo nano docker.yml``` untuk membuat konfigurasi untuk menginstall docker <br>
-![image monitoring](assets/) <br>
+![image monitoring](assets/72.png) <br>
 
-- Kemudian cek apakah syntax nya sudah benar atau belum dengan perintah ```ansible-playbook --syntax-check docker.yml``` <br>
-![image monitoring](assets/54.png) <br>
+- Kemudian cek apakah syntax nya sudah benar atau belum dengan perintah ```ansible-playbook --syntax-check docker.yml```
 
 - Jalankan konfigurasi tadi dengan perintah ```ansible-playbook docker.yml``` <br>
-![image monitoring](assets/59.png) <br>
+![image monitoring](assets/71.png) <br>
 
 # KUBERNETES
 
@@ -208,7 +207,7 @@
 - ```sudo apt update -y; sudo apt -y install kubelet kubeadm kubectl``` <br>
 ![image monitoring](assets/67.png) <br>
 
-- Kubeadm setup, jalankan perintah ```sudo kubeadm init --apiserver-advertise-address=103.171.85.240 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all``` <br>
+- Kubeadm setup, jalankan perintah dan masukkan IP Private dari server pada baris --apiserver-advertise-address```sudo kubeadm init --apiserver-advertise-address=103.171.85.240 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all``` <br>
 ![image monitoring](assets/) <br>
 
 - Kubeconfig, jalankan perintah ```mkdir -p $HOME/.kube```
