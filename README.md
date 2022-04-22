@@ -32,9 +32,10 @@
 - CI/CD (Jenkins)
 - [Baca lebih lanjut](bootcamp-devops/week-2/README.md)
 ### Week 3 Bootcamp-DevOps
-- null
-- null
-- null
+- Monitoring (Node Exporter, Promotheus, and Grafana)
+- Ansible
+- Kubernetes
+- [Baca lebih lanjut](bootcamp-devops/week-3/README.md)
 ### Week 4 Bootcamp-DevOps
 - null
 - null
