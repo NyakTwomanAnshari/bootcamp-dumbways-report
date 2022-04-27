@@ -11,6 +11,8 @@
 - Ubah nama directory ```mv dumbflix-frontend fe-dumbflix``` dan ```mv dumbflix-backend be-dumbflix```
   
 - Selanjutnya buat branch dengan nama production ```git branch production```
+
+- Jalankan perintah ```git checkout production``` untuk berpindah ke branch production
   
 - Selanjutnya buat sebuah file dengan nama Jenkins dengan konfigurasi sebagai berikut ```sudo nano Jenkinsfile```
 
