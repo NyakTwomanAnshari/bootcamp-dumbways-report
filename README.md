@@ -37,4 +37,5 @@
 - Kubernetes
 - [Baca lebih lanjut](bootcamp-devops/week-3/README.md)
 ### Week 4 Bootcamp-DevOps
-- [Final Task](bootcam-devops/week-4/README.md) 
+- Final Task
+- [Baca lebih lanjut](bootcamp-devops/week-4/README.md) 
