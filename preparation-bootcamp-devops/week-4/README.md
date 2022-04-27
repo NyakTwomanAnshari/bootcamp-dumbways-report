@@ -166,7 +166,7 @@ Proses load balancing adalah gabungan dari proses Reverse Proxy untuk multiple b
 - Selanjutnya pada masing-masing server masuk ke dalam directory nginx dengan perintah ```cd /etc/nginx/```
 - Kemudian buat directory baru dengan perintah ```mkdir coba-load-balancing``` lalu masuk ke directory tersebut dengan perintah ```cd coba-load-balancing```
 - Buat file dengan perintah ```sudo nano loadbalancing.xyz``` yang berisikan seperti pada gambar dibawah <br>
-![image load balancing](assets/65.png.png) <br>
+![image load balancing](assets/65.png) <br>
 - Setelah selesai membuat file loadbalancing.xyz, selanjutnya ketik pada terminal dengan perintah ```sudo nginx -t``` <br>
 ![image load balancing](assets/64.png) <br>
 - Kemudian pindah kembali ke directory nginx, selanjutnya buka file nginx.conf dengan perintah ```sudo nano nginx.conf``` lalu tambahkan perintah seperti pada gambar dibawah <br>

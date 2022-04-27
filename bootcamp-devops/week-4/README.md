@@ -1,0 +1,11 @@
+# FINAL TASK
+1. [Repository](bootcamp-devops/week-4/repository.md)
+2. [Server](bootcamp-devops/week-4/server.md)
+3. [User](bootcamp-devops/week-4/user.md)
+4. [SSH](bootcamp-devops/week-4/SSH.md)
+5. [Database](bootcamp-devops/week-4/database.md)
+6. [WebServer](bootcamp-devops/week-4/webserver.md)
+7. [Deployment](bootcamp-devops/week-4/deployment.md)
+8. [CI/CD](bootcamp-devops/week-4/CICD.md)
+9. [Monitoring](bootcamp-devops/week-4/monitoring.md)
+10. [Auth](bootcamp-devops/week-4/auth.md)
